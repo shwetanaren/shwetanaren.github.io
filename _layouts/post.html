@@ -10,46 +10,44 @@ post_class: post-template
 <div class="container">
     <div class="row">
 
-        <!-- Post Share -->
+        <!-- Post Share ( deleted the share buttons )
         <div class="col-md-2 pl-0">
-            {% include share.html %}
-        </div>
+
+        </div>-->
 
         <!-- Post -->
-        {% assign author = site.authors[page.author] %}
+        <!--{% assign author = site.authors[page.author] %}-->
 
-        <div class="col-md-9 flex-first flex-md-unordered">
+        <div class="col-md-12 flex-first flex-md-unordered">
             <div class="mainheading">
 
-                <!-- Author Box -->
-                {% if page.author %}
-                <div class="row post-top-meta">
-                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        {% if author.avatar %}
-                        <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                        {% else %}
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                        {% endif %}
-                    </div>
-                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
-                        <span class="author-description">{{ author.description }}</span>
-                    </div>
+
+                <!--{% if page.image %}
+                <div class="col-md-6 pr-0 align-self-center">
+                  <img class="rounded" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
                 </div>
-                {% endif %}
+                {% endif %}-->
 
                 <!-- Post Title -->
-                <h1 class="posttitle">{{ page.title }}</h1>
+                <br><h2 class="posttitle">{{ page.title }}</h2>
 
             </div>
-
+            <!-- Post Date -->
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>
+                {% if page.last_modified_at %}
+                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
+                {% endif %}
+                </small>
+            </p>
             <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
             {% if site.adsense == "enabled" %}
                 {% include adsense-under-header.html %}
             {% endif %}
             <!-- End Adsense -->
 
-            <!-- Post Featured Image -->
+            <!--  Post Featured Image-->
             {% if page.image %}
 
             {% if site.lazyimages == "enabled" %}
@@ -58,8 +56,9 @@ post_class: post-template
             <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
             {% endif %}
 
-            {% endif %}
+            {% endif %}-->
             <!-- End Featured Image -->
+
 
             <!-- Post Content -->
             <div class="article-post">
@@ -69,7 +68,7 @@ post_class: post-template
                         <p><em>{{page.beforetoc}}</em></p>
                     {% endif %}
                     <div class="toc mt-4 mb-4 lead">
-                        <h3 class="font-weight-bold">Summary</h3>
+                        <h5 class="font-weight-bold">Summary</h5>
                         {% include toc.html html=content %}
                     </div>
                 {% endif %}
@@ -84,15 +83,7 @@ post_class: post-template
             </div>
             {% endif %}
 
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
-                {% if page.last_modified_at %}
-                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                {% endif %}
-                </small>
-            </p>
+
 
             <!-- Post Categories -->
             <div class="after-post-cats">
@@ -140,21 +131,12 @@ post_class: post-template
 <!-- End Article
 ================================================== -->
 
-<!-- Begin Comments
+<!-- Begin Comments deleted
 ================================================== -->
-{% if page.comments != false %}
-    <div class="container">
-        <div id="comments" class="row justify-content-center mb-5">
-            <div class="col-md-8">
-                {% include disqus.html %}
-            </div>
-        </div>
-    </div>
-{% endif %}
 <!--End Comments
 ================================================== -->
 
-<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first:
 https://search.google.com/structured-data/testing-tool/u/0/
 ================================================== -->
 {% if page.rating %}
