@@ -2,27 +2,41 @@
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   min-height: 100%;
   background: #eef2f7;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-#root, body > div:first-child {
+#root,
+#root > div,
+body > div:first-child,
+body > div:first-child > div {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
 }
 
 @media (min-width: 768px) {
   body {
-    display: flex;
     justify-content: center;
   }
 
-  #root, body > div:first-child {
+  #root,
+  #root > div,
+  body > div:first-child,
+  body > div:first-child > div {
     width: 100%;
     max-width: 430px;
     background: #eef2f7;
@@ -351,5 +365,5 @@ input::-webkit-search-cancel-button,input::-webkit-search-decoration,input::-web
 @keyframes r-imtty0{0%{opacity:0;}100%{opacity:1;}}
 @keyframes r-q67da2{0%{transform:translateX(-100%);}100%{transform:translateX(400%);}}
 @keyframes r-t2lo5v{0%{opacity:1;}100%{opacity:0;}}</style><style id="expo-generated-fonts">@font-face{font-family:"SpaceMono";src:url("/assets/assets/fonts/SpaceMono-Regular.49a79d66bdea2debf1832bf4d7aca127.ttf");font-display:auto}
-@font-face{font-family:"FontAwesome";src:url("/assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.b06871f281fee6b241d60582ae9369b9.ttf");font-display:auto}</style><link rel="preload" href="/assets/assets/fonts/SpaceMono-Regular.49a79d66bdea2debf1832bf4d7aca127.ttf" as="font" crossorigin="" /><link rel="preload" href="/assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.b06871f281fee6b241d60582ae9369b9.ttf" as="font" crossorigin="" /><script type="module">globalThis.__EXPO_ROUTER_HYDRATE__=true;</script><link rel="preload" href="/_expo/static/css/web-74fe3e83948c367e0df16edf5ea0f2be.css" as="style"><link rel="stylesheet" href="/_expo/static/css/web-74fe3e83948c367e0df16edf5ea0f2be.css"><link rel="icon" href="/favicon.ico" /></head><body><div id="root"><div class="css-g5y9jx r-13awgt0"></div></div><script src="/_expo/static/js/web/entry-96778e906a5d218d6a737245f9ea1ecc.js" defer></script>
+@font-face{font-family:"FontAwesome";src:url("/assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.b06871f281fee6b241d60582ae9369b9.ttf");font-display:auto}</style><link rel="preload" href="/assets/assets/fonts/SpaceMono-Regular.49a79d66bdea2debf1832bf4d7aca127.ttf" as="font" crossorigin="" /><link rel="preload" href="/assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/FontAwesome.b06871f281fee6b241d60582ae9369b9.ttf" as="font" crossorigin="" /><script type="module">globalThis.__EXPO_ROUTER_HYDRATE__=true;</script><link rel="preload" href="/_expo/static/css/web-74fe3e83948c367e0df16edf5ea0f2be.css" as="style"><link rel="stylesheet" href="/_expo/static/css/web-74fe3e83948c367e0df16edf5ea0f2be.css"><link rel="icon" href="/favicon.ico" /></head><body><div id="root"><div class="css-g5y9jx r-13awgt0"></div></div><script src="/_expo/static/js/web/entry-f31e44a139a0c4dec187e4c00ba95f6e.js" defer></script>
 </body></html>
